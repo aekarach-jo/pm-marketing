@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
-import CsLineIcons from 'cs-line-icons/CsLineIcons';
 
 import clx from 'classnames';
 
-const ConfirmModal = ({ titleText, confirmText, okText, cancelText, show, className, loading, onConfirm, onCancel, ...rest }) => {
+const ConfirmModal = ({ titleText, body, okText, cancelText, show, className, loading, onConfirm, onCancel, ...rest }) => {
   const { formatMessage: f } = useIntl();
+  console.log(body);
 
   return (
     <Modal
@@ -15,20 +15,21 @@ const ConfirmModal = ({ titleText, confirmText, okText, cancelText, show, classN
       onHide={onCancel}
       contentClassName={clx({ 'overlay-spinner': loading })}
       backdrop={loading ? 'static' : true}
+      centered
       {...rest}
     >
-      <Modal.Header>
-        <Modal.Title>{titleText || 'Confirmation'}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{confirmText}</Modal.Body>
-      <Modal.Footer>
-        <Button variant="outline-primary" onClick={onCancel} disabled={loading}>
+      <div className="m-auto mt-4">
+        <Modal.Title className="font-weight-bold text-center">{titleText || 'Confirmation'}</Modal.Title>
+      </div>
+      <Modal.Body className="d-flex justify-content-center">{body()}</Modal.Body>
+      <div className="d-flex flex-row justify-content-center gap-2 w-60 m-auto mb-5">
+        <Button className="w-100" variant="light" onClick={onCancel} disabled={loading}>
           {cancelText || f({ id: 'common.cancel' })}
         </Button>
-        <Button variant="primary" onClick={onConfirm} disabled={loading}>
+        <Button className="w-100" variant="primary" onClick={onConfirm} disabled={loading} style={{ background: '#CB0C9F' }}>
           {okText || f({ id: 'common.ok' })}
         </Button>
-      </Modal.Footer>
+      </div>
     </Modal>
   );
 };

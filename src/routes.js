@@ -12,6 +12,9 @@ const customer = {
 const prohibited = {
   index: lazy(() => import('views/prohibited-words/ProhibitedWords')),
 };
+const resolve = {
+  index: lazy(() => import('views/resolve/ResolveWord')),
+};
 
 const appRoot = DEFAULT_PATHS.APP.endsWith('/') ? DEFAULT_PATHS.APP.slice(1, DEFAULT_PATHS.APP.length) : DEFAULT_PATHS.APP;
 
@@ -43,7 +46,7 @@ const routesAndMenuItems = {
     },
     {
       path: `${appRoot}/resolve`,
-      component: prohibited.index,
+      component: resolve.index,
       label: 'คำที่อนุมัติ',
       icon: ['/img/icons/resolve.png','/img/icons/resolve-dark.png'],
     },
