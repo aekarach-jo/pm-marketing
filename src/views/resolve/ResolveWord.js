@@ -7,7 +7,7 @@ import { tBody } from './constants';
 const ResolveWord = () => {
   return (
     <div className="d-flex flex-column gap-5">
-      <h4 className="font-weight-bold px-4">คำต้องห้าม</h4>
+      <h4 className="font-weight-bold px-4">คำที่อนุมัติ</h4>
       <section className="scroll-section" id="hoverableRows">
         <OverlayScrollbarsComponent
           options={{ scrollbars: { autoHide: 'leave' }, overflowBehavior: { x: 'hidden', y: 'scroll' } }}

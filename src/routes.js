@@ -47,7 +47,7 @@ const routesAndMenuItems = {
     {
       path: `${appRoot}/resolve`,
       component: resolve.index,
-      label: 'คำต้องห้าม',
+      label: 'คำที่อนุมัติ',
       icon: ['/img/icons/resolve.png','/img/icons/resolve-dark.png'],
     },
   ],
