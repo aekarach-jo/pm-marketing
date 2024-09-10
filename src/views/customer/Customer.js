@@ -64,8 +64,10 @@ const Customer = () => {
                     </Button>
                   </td>
                   <td className="text-center">{item.createAt}</td>
-                  <td className="text-center d-flex flex-row gap-4 justify-content-center align-items-center">
-                    <a href="#">Edit</a>
+                  <td className="text-center">
+                    <a className="mx-2" href="#">
+                      Edit
+                    </a>
                     <a href="#">Delete</a>
                   </td>
                 </tr>
