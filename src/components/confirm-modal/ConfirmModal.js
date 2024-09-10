@@ -16,6 +16,7 @@ const ConfirmModal = ({ titleText, body, okText, cancelText, show, className, lo
       onHide={onCancel}
       contentClassName={clx({ 'overlay-spinner': loading })}
       backdrop={loading ? 'static' : true}
+      centered
       {...rest}
     >
       <Modal.Header>
