@@ -11,7 +11,7 @@ const Customer = () => {
       <h4 className="font-weight-bold px-4">Member</h4>
       <section className="scroll-section" id="hoverableRows">
         <OverlayScrollbarsComponent
-          options={{ scrollbars: { autoHide: 'leave' }, overflowBehavior: { x: 'hidden', y: 'scroll' } }}
+          options={{ scrollbars: { autoHide: 'leave' }, overflowBehavior: { x: 'scroll', y: 'scroll' } }}
           style={{ maxHeight: '500px', width: '100%' }}
         >
           <Table hover>

@@ -21,7 +21,8 @@ const Layout = ({ children }) => {
       <main className="pt-4">
         <Container>
           <Row className="h-100">
-            <Navbar />
+            {/* <Navbar /> */}
+            <div style={{ height: '7vh' }}>{}</div>
             <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
               {children}
             </Card>
