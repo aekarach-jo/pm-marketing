@@ -7,8 +7,8 @@ export const USE_MULTI_LANGUAGE = true;
 
 // For detailed information: https://github.com/nfl/react-helmet#reference-guide
 export const REACT_HELMET_PROPS = {
-  defaultTitle: 'Aekarach Admin Template',
-  titleTemplate: '%s | Aekarach Admin Template',
+  defaultTitle: 'PM Marketing',
+  titleTemplate: '%s | PM Marketing',
 };
 
 export const DEFAULT_PATHS = {

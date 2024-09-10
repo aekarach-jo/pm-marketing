@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         <Container>
           <Row className="h-100">
             <Navbar />
-            <Card className="h-100 bg-white rounded-xl" id="contentArea">
+            <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
               {children}
             </Card>
           </Row>
