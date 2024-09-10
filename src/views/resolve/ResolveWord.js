@@ -4,7 +4,7 @@ import { Button, Col, Table } from 'react-bootstrap';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { tBody } from './constants';
 
-const ProhibitedWords = () => {
+const ResolveWord = () => {
   return (
     <div className="d-flex flex-column gap-5">
       <h4 className="font-weight-bold px-4">คำต้องห้าม</h4>
@@ -60,4 +60,4 @@ const ProhibitedWords = () => {
   );
 };
 
-export default ProhibitedWords;
+export default ResolveWord;

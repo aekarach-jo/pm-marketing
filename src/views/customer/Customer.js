@@ -12,7 +12,7 @@ const Customer = () => {
       <section className="scroll-section" id="hoverableRows">
         <OverlayScrollbarsComponent
           options={{ scrollbars: { autoHide: 'leave' }, overflowBehavior: { x: 'hidden', y: 'scroll' } }}
-          style={{ maxHeight: '450px', width: '100%' }}
+          style={{ maxHeight: '500px', width: '100%' }}
         >
           <Table hover>
             <thead>
@@ -39,7 +39,7 @@ const Customer = () => {
             </thead>
             <tbody>
               {tBody.map((item) => (
-                <tr index={item.id} style={{ verticalAlign: 'middle' }}>
+                <tr index={item.id} style={{ verticalAlign: 'middle', height: '72px' }}>
                   <td className="d-flex flex-row px-4">
                     <img className="rounded-md" src={item.thum} alt="thum" style={{ width: '40px', height: '40px', marginRight: '19px' }} />
                     <Col>
@@ -65,10 +65,12 @@ const Customer = () => {
                   </td>
                   <td className="text-center">{item.createAt}</td>
                   <td className="text-center">
-                    <a className="mx-2" href="#">
+                    <a className="mx-2" href="#" style={{ color: 'gray' }}>
                       Edit
                     </a>
-                    <a href="#">Delete</a>
+                    <a href="#" style={{ color: 'gray' }}>
+                      Delete
+                    </a>
                   </td>
                 </tr>
               ))}
