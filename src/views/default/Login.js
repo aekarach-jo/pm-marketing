@@ -53,11 +53,75 @@ const Login = () => {
   }, [isFetching]);
 
   const leftSide = (
-    <div className="min-h-100 d-flex align-items-center">
-      <div className="w-100 w-lg-75 w-xxl-50">
+    <div className="min-h-100 d-flex align-items-center w-100">
+      <div className="w-100 w-lg-100">
         <div>
-          <div className="mb-5">
-            <img className="w-100" src="/img/logo/logo.png" alt="Logo" />
+          <h1 style={{ fontSize: '64px', fontWeight: 'bold', lineHeight: '64px', marginBottom: '39px' }}>
+            ระบบตรวจสอบ
+            <br />
+            คําต้องห้ามโฆษณา <br />
+            สถานพยาบาล
+          </h1>
+          <h2
+            style={{
+              background: '-webkit-linear-gradient(#FF0080, #7928CA)',
+              '-webkit-background-clip': 'text',
+              '-webkit-text-fill-color': 'transparent',
+              'font-weight': 'bold',
+            }}
+          >
+            เข้าสู่ระบบ
+          </h2>
+          <p style={{ marginBottom: '41px' }}>Enter the email and password provided to log in.</p>
+
+          <div className="w-50">
+            <form id="loginForm" className="tooltip-end-bottom" onSubmit={handleSubmit}>
+              <div className="mb-3 filled form-group tooltip-end-top">
+                <p style={{ fontWeight: 'bold' }}>Email</p>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder={f({ id: 'Email' })}
+                  value={values.username}
+                  onChange={handleChange}
+                  disabled={isFetching}
+                  className="border border-dark-subtle ps-2"
+                />
+                {errors.username && touched.username && <div className="d-block invalid-tooltip">{errors.username}</div>}
+              </div>
+              <div className="mb-3 filled form-group tooltip-end-top">
+                <p style={{ fontWeight: 'bold' }}>Password</p>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={values.password}
+                  placeholder={f({ id: 'Password' })}
+                  disabled={isFetching}
+                  className="border border-dark-subtle ps-2"
+                />
+                {/* <NavLink className="text-small position-absolute t-3 e-3" to="/forgot-password">
+                Forgot?
+              </NavLink> */}
+                {errors.password && touched.password && <div className="d-block invalid-tooltip">{errors.password}</div>}
+              </div>
+              <div className="form-check form-switch mb-4 ">
+                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                <label className="form-check-label" htmlForfor="flexSwitchCheckChecked">
+                  Remember me
+                </label>
+              </div>
+              <Button
+                className="text-white font-weight-bold w-100"
+                style={{
+                  background: '-webkit-linear-gradient(#FF0080, #7928CA)',
+                }}
+                size="lg"
+                type="submit"
+              >
+                {f({ id: 'SINGIN' })}
+              </Button>
+            </form>
           </div>
         </div>
       </div>
@@ -65,54 +129,15 @@ const Login = () => {
   );
 
   const rightSide = (
-    <div
-      className={clx(
-        'sw-lg-100 min-h-100 bg-outline-secondary d-flex justify-content-center align-items-center shadow-deep py-5 full-page-content-right-border',
-        {
-          'overlay-spinner': isFetching,
-        }
-      )}
-    >
-      <div className="sw-lg-60 px-5">
+    <div>
+      <div className="sw-lg-60">
         <div className="mb-3 w-100">
-          <img className="w-100" src="/img/logo/zto-logo.png" alt="Logo" />
-        </div>
-        <div className="mb-5">
-          <p className="h6">{f({ id: 'auth.description' })}</p>
-        </div>
-        <div>
-          <form id="loginForm" className="tooltip-end-bottom" onSubmit={handleSubmit}>
-            <div className="mb-3 filled form-group tooltip-end-top">
-              <CsLineIcons icon="user" />
-              <Form.Control
-                type="text"
-                name="username"
-                placeholder={f({ id: 'auth.username' })}
-                value={values.username}
-                onChange={handleChange}
-                disabled={isFetching}
-              />
-              {errors.username && touched.username && <div className="d-block invalid-tooltip">{errors.username}</div>}
-            </div>
-            <div className="mb-3 filled form-group tooltip-end-top">
-              <CsLineIcons icon="lock-off" />
-              <Form.Control
-                type="password"
-                name="password"
-                onChange={handleChange}
-                value={values.password}
-                placeholder={f({ id: 'auth.password' })}
-                disabled={isFetching}
-              />
-              {/* <NavLink className="text-small position-absolute t-3 e-3" to="/forgot-password">
-                Forgot?
-              </NavLink> */}
-              {errors.password && touched.password && <div className="d-block invalid-tooltip">{errors.password}</div>}
-            </div>
-            <Button size="lg" type="submit">
-              {f({ id: 'auth.login' })}
-            </Button>
-          </form>
+          <img
+            className=""
+            style={{ width: '753px', height: '708px', position: 'absolute', top: '0', right: '0' }}
+            src="/img/background/image.png"
+            alt="background Login"
+          />
         </div>
       </div>
     </div>
