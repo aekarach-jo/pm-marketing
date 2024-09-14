@@ -101,3 +101,19 @@ html[data-placement='vertical'] {
     scroll-margin-top: var(--main-spacing-vertical);
   }
 }
+
+.form-check-input {
+  width: 42px !important;
+  height: 20px;
+}
+
+.form-check-label {
+  margin-left: 0.5rem;
+  margin-top: 3px;
+  color: #3A416F;
+}
+
+.form-check-input:checked {
+  background-color: #3A416F;
+  border-color: #3A416F !important;
+}
