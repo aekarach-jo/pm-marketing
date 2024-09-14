@@ -1225,7 +1225,7 @@ html[data-navcolor="light"] {
 
     &.active,
     &:hover {
-      background: rgba(0, 0, 0, 0.05) !important;
+      background: rgba(255, 255, 255, 1) !important;
     }
 
     .icon {
@@ -1533,13 +1533,15 @@ html[data-color="dark-purple"][data-navcolor="dark"] {
   align-items: center;
   padding: 0px 20px;
   background-color: transparent;
-  margin-bottom: 2.2rem;
-  height: 35px !important;
+  // margin: 1.5rem 0px;
+  height: 87px !important;
+  padding-right: 3rem;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .logo {
@@ -1577,4 +1579,9 @@ html[data-color="dark-purple"][data-navcolor="dark"] {
 .notification-icon {
   font-size: 24px;
   cursor: pointer;
+}
+
+.nav-text-placeHolder::placeholder {
+ color: #252F40;
+ opacity: 50.33%;
 }

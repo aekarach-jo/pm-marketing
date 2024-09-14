@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 import React, { useCallback } from 'react';
+import { Table as TableR } from 'react-bootstrap';
 
 const Table = ({ tableInstance, className = 'react-table boxed', rowProps, customStyle, rowStyle }) => {
   const { getTableProps, headerGroups, page, getTableBodyProps, prepareRow, toggleAllPageRowsSelected, setIsOpenAddEditModal } = tableInstance;
   const handleRowClick = useCallback((oc, itemD, group) => (e) => oc?.(e, itemD, group), []);
   return (
     <>
-      <table className={className} {...getTableProps()} style={customStyle}>
+      <TableR responsive hover className={className} {...getTableProps()} style={customStyle}>
         <thead>
           {headerGroups.map((headerGroup, headerIndex) => (
             <tr key={`header${headerIndex}`} {...headerGroup.getHeaderGroupProps()}>
@@ -28,7 +29,7 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody {...getTableBodyProps()} className="border-spacing-none">
           {page.map((row, i) => {
             prepareRow(row);
             const newRowProps = row.getRowProps(rowProps);
@@ -38,8 +39,8 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
                 {...row.getRowProps()}
                 {...newRowProps}
                 onClick={handleRowClick(newRowProps.onClick, row?.original, row?.original?.id)}
-                className={classNames({ selected: row.isSelected })}
-                style={{ cursor: 'pointer' }}
+                className={`${classNames({ selected: row.isSelected })} `}
+                style={{ cursor: 'pointer', boxShadow: 'none' }}
               >
                 {row.cells.map((cell, cellIndex) => (
                   <td
@@ -56,8 +57,8 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
                         row.toggleRowSelected();
                       }
                     }}
-                    style={rowStyle}
-                    className="sh-md-4"
+                    style={(`${rowStyle}`, { borderRadius: '0px', verticalAlign: 'middle' })}
+                    className="border-bottom"
                   >
                     {cell.render('Cell')}
                   </td>
@@ -66,7 +67,7 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
             );
           })}
         </tbody>
-      </table>
+      </TableR>
     </>
   );
 };

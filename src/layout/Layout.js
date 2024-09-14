@@ -4,10 +4,12 @@ import { useLocation } from 'react-router-dom';
 import useLayout from 'hooks/useLayout';
 import Footer from 'layout/footer/Footer';
 import Nav from 'layout/nav/Nav';
+import { useIsMobile } from 'hooks/useIsMobile';
 import Navbar from './nav/NavBar';
 
 const Layout = ({ children }) => {
   useLayout();
+  console.log(useIsMobile());
 
   const { pathname } = useLocation();
 
@@ -17,18 +19,22 @@ const Layout = ({ children }) => {
   }, [pathname]);
   return (
     <>
-      <Nav />
-      <main className="pt-4">
-        <Container>
-          <Row className="h-100">
-            {/* <Navbar /> */}
-            <div style={{ height: '7vh' }}>{}</div>
-            <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
-              {children}
-            </Card>
-          </Row>
-        </Container>
-      </main>
+      <Col>
+        <>
+          <Nav />
+          <main className="pt-0">
+            {useIsMobile() ? <div style={{ marginBottom: '4rem' }} /> : <Navbar />}
+            <Container>
+              <Row className="h-100">
+                {/* <Navbar /> */}
+                <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
+                  {children}
+                </Card>
+              </Row>
+            </Container>
+          </main>
+        </>
+      </Col>
       <Footer />
     </>
   );

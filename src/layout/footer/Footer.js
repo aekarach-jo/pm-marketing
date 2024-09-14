@@ -18,7 +18,7 @@ const Footer = () => {
               <p className="mb-0 text-muted text-medium">Copyright © 2024 PM Marketing. All rights reserved</p>
             </Col>
             <Col sm="6" className="d-none d-sm-block">
-              <div className="d-flex flex-row gap-3 pt-0 pe-0 mb-0 float-end">
+              <div className="d-flex flex-row gap-3 pt-0 pe-0 mb-0 float-end text-muted text-medium">
                 <div className="mb-0 text-medium" href="#/" linkProps={{ className: 'btn-link' }}>
                   Term & Condition
                 </div>

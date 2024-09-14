@@ -132,7 +132,8 @@ textarea.form-control {
 
   input {
     background: transparent !important;
-    width: calc(100% - 25px);
+    // width: calc(100% - 25px);
+    width: 100%;
     border: initial;
   }
 

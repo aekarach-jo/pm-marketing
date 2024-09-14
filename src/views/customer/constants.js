@@ -1,13 +1,4 @@
-export const tHeader = [
-  { id: 0, name: 'Member Name', width: '20%' },
-  { id: 1, name: 'ID / Pass', width: '20%' },
-  { id: 2, name: 'ROLE', width: '20%' },
-  { id: 3, name: 'STATUS', width: '20%' },
-  { id: 4, name: 'CREATION DATE', width: '20%' },
-  { id: 5, name: 'ACTION', width: '20%' },
-];
-
-export const tBody = [
+export const moackData = [
   {
     id: 0,
     thum: '/img/profile/profile-1.webp',
@@ -15,8 +6,8 @@ export const tBody = [
     email: 'khuong@mail.com',
     country: 'Viet Nam',
     pass: 'Can tho',
-    role: 'ADMIN',
-    status: 'ONLINE',
+    role: true,
+    status: true,
     createAt: '06/26/2021',
   },
   {
@@ -26,8 +17,8 @@ export const tBody = [
     email: 'ThuanDMCE@mail.com',
     country: 'ThaiLand',
     pass: 'Bangkok',
-    role: 'MEMBER',
-    status: 'OFFLINE',
+    role: false,
+    status: false,
     createAt: '06/24/2021',
   },
   {
@@ -37,8 +28,8 @@ export const tBody = [
     email: 'MinhVuxx@mail.com',
     country: 'Viet Nam',
     pass: 'Ha Noi',
-    role: 'ADMIN',
-    status: 'ONLINE',
+    role: true,
+    status: true,
     createAt: '05/26/2021',
   },
   {
@@ -48,8 +39,8 @@ export const tBody = [
     email: 'Map@mail.com',
     country: 'Viet Nam',
     pass: 'Sai Gon',
-    role: 'MEMBER',
-    status: 'OFFLINE',
+    role: false,
+    status: false,
     createAt: '04/22/2021',
   },
   {
@@ -59,8 +50,8 @@ export const tBody = [
     email: 'LiemKhiet@mail.com',
     country: 'USA',
     pass: 'Hawaii',
-    role: 'ADMIN',
-    status: 'OFFLINE',
+    role: true,
+    status: false,
     createAt: '04/22/2021',
   },
   {
@@ -70,8 +61,8 @@ export const tBody = [
     email: 'Vovinam@mail.com',
     country: 'China',
     pass: 'Wuhan',
-    role: 'MEMBER',
-    status: 'ONLINE',
+    role: false,
+    status: false,
     createAt: '04/20/2021',
   },
 ];

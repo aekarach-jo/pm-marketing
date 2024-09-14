@@ -50,7 +50,9 @@ const MainMenuItem = memo(({ item, id, isSubItem = false, menuPlacement = DEFAUL
               </Button>
             </>
           )}
-          <span style={{ fontWeight: '700', color: 'black' }}>{USE_MULTI_LANGUAGE ? f({ id: label }) : label}</span>
+          <span className="label" style={{ fontWeight: '700', color: 'black' }}>
+            {USE_MULTI_LANGUAGE ? f({ id: label }) : label}
+          </span>
         </>
       ) : (
         <>
@@ -70,7 +72,7 @@ const MainMenuItem = memo(({ item, id, isSubItem = false, menuPlacement = DEFAUL
               </Button>
             </>
           )}
-          <span>{USE_MULTI_LANGUAGE ? f({ id: label }) : label}</span>
+          <span className="label">{USE_MULTI_LANGUAGE ? f({ id: label }) : label}</span>
         </>
       )}
     </>
@@ -101,7 +103,13 @@ const MainMenuItem = memo(({ item, id, isSubItem = false, menuPlacement = DEFAUL
   if (item.subs && menuPlacement === MENU_PLACEMENT.Horizontal && !item.megaParent) {
     return (
       <Dropdown as="li" key={id} onToggle={onToggleItem} className={classNames({ mega: item.mega })} show={horizontalDropdownIsOpen}>
-        <Dropdown.Toggle as={HorizontalMenuDropdownToggle} onClick={onHorizontalMenuDropdownToggleClick} href={item.path} active={isActive}>
+        <Dropdown.Toggle
+          as={HorizontalMenuDropdownToggle}
+          onClick={onHorizontalMenuDropdownToggleClick}
+          href={item.path}
+          active={isActive}
+          style={{ padding: '.75rem 0.5rem' }}
+        >
           {getLabel(item.icon, item.label)}
         </Dropdown.Toggle>
         <Dropdown.Menu

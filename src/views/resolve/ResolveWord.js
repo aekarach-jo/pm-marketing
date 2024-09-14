@@ -1,61 +1,148 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-key */
-import React from 'react';
-import { Button, Col, Table } from 'react-bootstrap';
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import { tBody } from './constants';
+import React, { useMemo, useState } from 'react';
+import { Button, Col, Form } from 'react-bootstrap';
+import Table from 'components/table/Table';
+import ConfirmModal from 'components/confirm-modal/ConfirmModal';
+import { useGlobalFilter, usePagination, useRowState, useSortBy, useTable } from 'react-table';
+import { useIsMobile } from 'hooks/useIsMobile';
+import { moackData } from './constants';
 
 const ResolveWord = () => {
+  const [show, setShow] = useState(false);
+  const [textModal, settextModal] = useState({
+    titleText: '',
+    btnConfirm: '',
+    btnCancel: '',
+  });
+  const [filter, setFilter] = useState({});
+  const [data, setData] = useState(moackData);
+  const pageCount = 1;
+
+  const handlerShowModal = (condition) => {
+    if (condition === 'add') {
+      settextModal(() => {
+        return { titleText: 'เพิ่มคำต้องห้าม', btnConfirm: 'เพิ่มข้อมูล', btnCancel: 'ยกเลิก' };
+      });
+    }
+    if (condition === 'edit') {
+      settextModal(() => {
+        return { titleText: 'แก้ไข', btnConfirm: 'แก้ไข', btnCancel: 'ยกเลิก' };
+      });
+    }
+    if (condition === 'delete') {
+      settextModal(() => {
+        return { titleText: 'ลบคำต้องห้าม', btnConfirm: 'ลบข้อมูล', btnCancel: 'ยกเลิก' };
+      });
+    }
+    setShow(true);
+  };
+
+  const modalBody = () => {
+    return (
+      <div className={`d-flex flex-column gap-2  ${useIsMobile() ? 'w-100' : 'w-70'}`}>
+        <div>คำต้องห้าม</div>
+        <Form.Control as="input" className="form-control" />
+        <div>แก้ไข</div>
+        <Form.Control as="input" className="form-control" />
+      </div>
+    );
+  };
+  const columns = useMemo(() => {
+    return [
+      {
+        accessor: 'id',
+      },
+      {
+        Header: 'NO',
+        accessor: 'number',
+        sortable: true,
+        headerClassName: 'text-medium text-muted',
+        Cell: ({ cell }) => (
+          <div className="text-medium font-weight-bold" style={{ width: '7rem' }}>
+            {cell.value || '-'}
+          </div>
+        ),
+      },
+      {
+        Header: 'Prohibited words',
+        accessor: 'word',
+        sortable: true,
+        headerClassName: 'text-medium text-muted',
+        Cell: ({ cell }) => (
+          <div className="text-medium font-weight-bold" style={{ width: '7rem' }}>
+            {cell.value || '-'}
+          </div>
+        ),
+      },
+      {
+        Header: 'Correction',
+        accessor: 'correction',
+        sortable: true,
+        headerClassName: 'text-medium text-muted',
+        Cell: ({ cell }) => (
+          <div className="text-medium" style={{ width: '7rem' }}>
+            {cell.value || '-'}
+          </div>
+        ),
+      },
+      {
+        Header: 'ACTIONS',
+        accessor: 'action',
+        sortable: false,
+        headerClassName: 'text-medium text-muted text-end',
+        Cell: () => (
+          <div className="text-medium float-end " style={{ width: '5rem' }}>
+            <a className="mx-2 text-muted" href="#" style={{ color: 'gray' }} onClick={() => handlerShowModal('edit')}>
+              Edit
+            </a>
+            <a href="#" className="text-muted" style={{ color: 'gray' }} onClick={() => handlerShowModal('delete')}>
+              Delete
+            </a>
+          </div>
+        ),
+      },
+    ];
+  }, []);
+
+  const tableInstance = useTable(
+    {
+      columns,
+      data,
+      filter,
+      setData,
+      setFilter,
+      autoResetPage: false,
+      autoResetSortBy: false,
+      pageCount,
+      initialState: { pageIndex: 0, sortBy: [{ id: 'number', desc: false }], hiddenColumns: ['id'] },
+    },
+    useGlobalFilter,
+    useSortBy,
+    usePagination,
+    useRowState
+  );
   return (
-    <div className="d-flex flex-column gap-5">
-      <h4 className="font-weight-bold px-4">คำที่อนุมัติ</h4>
-      <section className="scroll-section" id="hoverableRows">
-        <OverlayScrollbarsComponent
-          options={{ scrollbars: { autoHide: 'leave' }, overflowBehavior: { x: 'hidden', y: 'scroll' } }}
-          style={{ maxHeight: '500px', width: '100%' }}
-        >
-          <Table hover>
-            <thead>
-              <tr>
-                <th className="text-muted text-start px-4" scope="col">
-                  No
-                </th>
-                <th className="text-muted text-start" scope="col">
-                  Prohibited words
-                </th>
-                <th className="text-muted text-center" scope="col">
-                  Correction
-                </th>
-                <th className="text-muted text-center" scope="col">
-                  ACTIONS
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {tBody.map((item, index) => (
-                <tr index={item.id} style={{ verticalAlign: 'middle', height: '72px' }}>
-                  <td className="text-start px-4" style={{ fontWeight: '600' }}>
-                    <div>{index + 1}</div>
-                  </td>
-                  <td className="text-start" style={{ fontWeight: '600' }}>
-                    <div>{item.word}</div>
-                  </td>
-                  <td className="text-center" style={{ fontWeight: '400' }}>
-                    <div>{item.correction}</div>
-                  </td>
-                  <td className="text-center">
-                    <a className="mx-2" href="#" style={{ color: 'gray' }}>
-                      Edit
-                    </a>
-                    <a href="#" style={{ color: 'gray' }}>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </OverlayScrollbarsComponent>
-      </section>
+    <div className="d-flex flex-column gap-2">
+      <div className="px-3 d-flex flex-row justify-content-between">
+        <h4 className="font-weight-bold ">คำที่อนุมัติ</h4>
+        <Button className="mr-3" style={{ background: '#CB0C9F', width: useIsMobile() ? '100px' : '161px' }} onClick={() => handlerShowModal('add')}>
+          เพิ่มข้อมูล
+        </Button>
+      </div>
+      <Table tableInstance={tableInstance} isLoading={false} hideControlsPageSize hideControlSearch />
+      <ConfirmModal
+        titleText={textModal.titleText}
+        body={modalBody}
+        okText={textModal.btnConfirm}
+        cancelText={textModal.btnCancel}
+        show={show}
+        className=""
+        loading=""
+        onConfirm=""
+        onCancel={() => setShow(false)}
+      />
     </div>
   );
 };

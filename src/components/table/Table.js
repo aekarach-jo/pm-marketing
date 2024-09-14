@@ -120,7 +120,7 @@ const Table = ({
     };
 
     return (
-      <Row className="mb-3">
+      <Row>
         <Col sm="12" md="5" lg="3" xxl="2">
           {!hideControlSearch && (
             <div className="d-inline-block float-md-start me-1 mb-1 mb-md-0 search-input-container w-100 shadow bg-foreground">
@@ -247,7 +247,7 @@ const Table = ({
               </Tab.Container>
             ) : (
               <>
-                {renderHeader({ tableInstance, filter: tableConfig?.filter })}
+                {/* {renderHeader({ tableInstance, filter: tableConfig?.filter })} */}
                 {renderFilter({ tableInstance, isLoading: tableConfig?.isLoading, component: tableConfig?.filter })}
                 {renderContainer({ tableInstance, isLoading: tableConfig?.isLoading })}
               </>
