@@ -1,4 +1,66 @@
+const common = {
+  'common.add': 'Add',
+  'common.delete': 'Delete',
+  'common.edit': 'Edit',
+  'common.start': 'Start',
+  'common.save': 'Save',
+  'common.saveAs': 'Save As',
+  'common.cancel': 'Cancel',
+  'common.close': 'Close',
+  'common.search': 'Search',
+  'common.search.type': 'กรอกค้นหา',
+  'common.reset': 'Reset',
+  'common.yes': 'Yes',
+  'common.no': 'No',
+  'common.ok': 'OK',
+  'common.back': 'Back',
+  'common.next': 'Next',
+  'common.submit': 'Submit',
+  'common.finish': 'Job Close',
+  'common.print': 'Print',
+  'common.stickerPrint': 'Sticker Print',
+  'common.createdCutting': 'Cutting Confirm',
+  'common.update': 'Update',
+  'common.export': 'Export',
+  'common.upload': 'Upload',
+  'common.message': 'Message',
+  'common.revert': 'Revert',
+
+  'common.confirm': 'Confirm',
+  'common.confirmPrint': 'Task Print',
+
+  'common.error': 'Error',
+
+  'common.success': 'Success',
+
+  'common.warning': 'Warning',
+  'common.add-btn-warning': 'Add Warning',
+
+  'common.info': 'Info',
+
+  'common.items': 'Items',
+  'common.count-items': '{count} items',
+  'common.display-count': 'Display count',
+  'common.no-data': 'No Data',
+
+  'common.date.day': 'Day',
+  'common.date.month': 'Month',
+  'common.date.year': 'Year',
+
+  'common.active': 'Active',
+  'common.inactive': 'Inactive',
+
+  'common.select-placeholder': 'Select...', // Deprecated
+  'common.select.placeholder': 'Select...',
+  'common.select.loading': 'Loading...',
+  'common.select.empty': 'No options',
+  'common.valid': 'Valid',
+  'common.invalid': 'Invalid',
+};
+
+
 const enMessages = {
+  ...common,
   'menu.dashboards': 'Dashboards',
   'menu.import-data': 'Import data',
   'menu.parcel': 'Parcel',

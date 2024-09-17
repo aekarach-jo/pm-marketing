@@ -362,6 +362,22 @@ input.form-control:focus {
   box-shadow: 0px 0px 2px 1px #E293D37F !important;
 }
 
+.hover-a-edit {
+  color:rgba(131, 146, 171, 1);
+}
+
+.hover-a-delete {
+  color: rgba(131, 146, 171, 1);
+}
+
+.hover-a-edit:hover {
+  color:#ff6de4
+}
+
+.hover-a-delete:hover {
+  color: red;
+}
+
 .border-spacing-none { 
   border-spacing: 0 !important;
   border-collapse: separate;

@@ -8,6 +8,7 @@ import ConfirmModal from 'components/confirm-modal/ConfirmModal';
 import { useGlobalFilter, usePagination, useRowState, useSortBy, useTable } from 'react-table';
 import { useIsMobile } from 'hooks/useIsMobile';
 import { moackData } from './constants';
+import { getColumnDesktop, getColumnMobile } from './Columns';
 
 const ProhibitedWords = () => {
   const [show, setShow] = useState(false);
@@ -49,66 +50,11 @@ const ProhibitedWords = () => {
       </div>
     );
   };
-  const columns = useMemo(() => {
-    return [
-      {
-        accessor: 'id',
-      },
-      {
-        Header: 'NO',
-        accessor: 'number',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium font-weight-bold" style={{ width: '2rem' }}>
-            {cell.value || '-'}
-          </div>
-        ),
-      },
-      {
-        Header: 'Prohibited words',
-        accessor: 'word',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium font-weight-bold" style={{ width: '8rem' }}>
-            {cell.value || '-'}
-          </div>
-        ),
-      },
-      {
-        Header: 'Correction',
-        accessor: 'correction',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium" style={{ width: '7rem' }}>
-            {cell.value || '-'}
-          </div>
-        ),
-      },
-      {
-        Header: 'ACTIONS',
-        accessor: 'action',
-        sortable: false,
-        headerClassName: 'text-medium text-muted text-end',
-        Cell: () => (
-          <div className="text-medium float-end " style={{ width: '5rem' }}>
-            <a className="mx-2 text-muted" href="#" style={{ color: 'gray' }} onClick={() => handlerShowModal('edit')}>
-              Edit
-            </a>
-            <a href="#" className="text-muted" style={{ color: 'gray' }} onClick={() => handlerShowModal('delete')}>
-              Delete
-            </a>
-          </div>
-        ),
-      },
-    ];
-  }, []);
+
 
   const tableInstance = useTable(
     {
-      columns,
+      columns: useIsMobile() ? useMemo(() => getColumnMobile(handlerShowModal), []) : useMemo(() => getColumnDesktop(handlerShowModal), []),
       data,
       filter,
       setData,
@@ -116,7 +62,7 @@ const ProhibitedWords = () => {
       autoResetPage: false,
       autoResetSortBy: false,
       pageCount,
-      initialState: { pageIndex: 0, sortBy: [{ id: 'number', desc: false }], hiddenColumns: ['id'] },
+      initialState: { pageIndex: 0, hiddenColumns: ['id'] },
     },
     useGlobalFilter,
     useSortBy,

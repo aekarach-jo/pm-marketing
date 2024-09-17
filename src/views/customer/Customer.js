@@ -1,142 +1,103 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-key */
 import Table from 'components/table/Table';
-import React, { useMemo, useState } from 'react';
-import { Button, Col } from 'react-bootstrap';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Form } from 'react-bootstrap';
+import ConfirmModal from 'components/confirm-modal/ConfirmModal';
 import { useGlobalFilter, usePagination, useRowState, useSortBy, useTable } from 'react-table';
 import { moackData } from 'views/customer/constants';
+import { useIsMobile } from 'hooks/useIsMobile';
+import { getColumnDesktop, getColumnMobile } from './Columns';
 
 const Customer = () => {
   const [filter, setFilter] = useState({});
+  const [show, setShow] = useState(false);
   const [data, setData] = useState(moackData);
+  const [textModal, settextModal] = useState({
+    titleText: '',
+    btnConfirm: '',
+    btnCancel: '',
+  });
   const pageCount = 1;
 
-  const columns = useMemo(() => {
-    return [
-      {
-        accessor: 'id',
-      },
-      {
-        Header: 'Member Name',
-        accessor: 'name',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium d-flex flex-row" style={{ width: '13rem' }}>
-            <img className="rounded-md" src={cell.row.original.thum} alt="thum" style={{ width: '40px', height: '40px', marginRight: '19px' }} />
-            <Col>
-              <p className="m-0 font-weight-bold fs-6">{cell.value}</p>
-              <p className="m-0">{cell.row.original.email}</p>
-            </Col>
-          </div>
-        ),
-      },
-      {
-        Header: 'ID / Pass',
-        accessor: 'pass',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium text-start" style={{ width: '7rem' }}>
-            <Col>
-              <p className="m-0 font-weight-bold fs-6">{cell.row.original.country}</p>
-              <p className="m-0">{cell.row.original.pass}</p>
-            </Col>
-          </div>
-        ),
-      },
-      {
-        Header: 'ROLE',
-        accessor: 'role',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium" style={{ width: '7rem' }}>
-            {cell.value ? (
-              <Button className="text-center p-0" style={{ width: '68px', height: '25px', background: 'linear-gradient(135deg, #98EC2D 0%, #17AD37 100%)' }}>
-                <div style={{ fontSize: '12px', fontWeight: '700', lineHeight: '18.13px' }}>ADMIN</div>
-              </Button>
-            ) : (
-              <Button className="text-center p-0" style={{ width: '68px', height: '25px', background: 'linear-gradient(135deg, #FF00E6 0%, #99008A 100%)' }}>
-                <div style={{ fontSize: '12px', fontWeight: '700', lineHeight: '18.13px' }}>MEMBER</div>
-              </Button>
-            )}
-          </div>
-        ),
-      },
-      {
-        Header: 'STATUS',
-        accessor: 'status',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium" style={{ width: '7rem' }}>
-            {cell.value ? (
-              <Button className="text-center p-0" style={{ width: '68px', height: '25px', background: 'linear-gradient(135deg, #98EC2D 0%, #17AD37 100%)' }}>
-                <div style={{ fontSize: '12px', fontWeight: '700', lineHeight: '18.13px' }}>ONLINE</div>
-              </Button>
-            ) : (
-              <Button
-                className="text-center p-0"
-                style={{ width: '68px', height: '25px', background: 'linear-gradient(135deg, #EC722D 0%, #EC2D2D 100%, #CF1010 100%)' }}
-              >
-                <div style={{ fontSize: '12px', fontWeight: '700', lineHeight: '18.13px' }}>OFFLINE</div>
-              </Button>
-            )}
-          </div>
-        ),
-      },
-      {
-        Header: 'CREATION DATE',
-        accessor: 'createAt',
-        sortable: true,
-        headerClassName: 'text-medium text-muted',
-        Cell: ({ cell }) => (
-          <div className="text-medium" style={{ width: '7rem' }}>
-            {cell.value || '-'}
-          </div>
-        ),
-      },
-      {
-        Header: 'ACTIONS',
-        accessor: 'action',
-        sortable: false,
-        headerClassName: 'text-medium text-muted',
-        Cell: () => (
-          <div className="text-medium text-center text-muted" style={{ width: '5rem' }}>
-            <a className="mx-2 text-muted" href="#" style={{ color: 'gray' }}>
-              Edit
-            </a>
-            <a href="#" className="text-muted" style={{ color: 'gray' }}>
-              Delete
-            </a>
-          </div>
-        ),
-      },
-    ];
-  }, []);
+  const handlerShowModal = (condition) => {
+    if (condition === 'add') {
+      settextModal(() => {
+        return { titleText: 'เพิ่ม', btnConfirm: 'เพิ่มข้อมูล', btnCancel: 'ยกเลิก' };
+      });
+    }
+    if (condition === 'edit') {
+      settextModal(() => {
+        return { titleText: 'แก้ไข', btnConfirm: 'แก้ไข', btnCancel: 'ยกเลิก' };
+      });
+    }
+    if (condition === 'delete') {
+      settextModal(() => {
+        return { titleText: 'ลบ', btnConfirm: 'ลบข้อมูล', btnCancel: 'ยกเลิก' };
+      });
+    }
+    setShow(true);
+  };
+
+  const modalBody = () => {
+    return (
+      <div className={`d-flex flex-column gap-2  ${useIsMobile() ? 'w-100' : 'w-70'}`}>
+        <div>Member Name</div>
+        <Form.Control as="input" className="form-control" />
+        <div>ID / Pass</div>
+        <Form.Control as="input" className="form-control" />
+      </div>
+    );
+  };
 
   const tableInstance = useTable(
     {
-      columns,
+      columns: useIsMobile() ? useMemo(() => getColumnMobile(handlerShowModal), []) : useMemo(() => getColumnDesktop(handlerShowModal), []),
       data,
       filter,
       setData,
       setFilter,
+      // manualPagination: false,
+      // manualGlobalFilter: false,
+      // manualSortBy: false,
       autoResetPage: false,
       autoResetSortBy: false,
       pageCount,
-      initialState: { pageIndex: 0, sortBy: [{ id: 'no', desc: false }], hiddenColumns: ['id'] },
+      initialState: { pageIndex: 0, hiddenColumns: ['id'] },
     },
     useGlobalFilter,
     useSortBy,
     usePagination,
     useRowState
   );
+
+  const {
+    state: { globalFilter, pageIndex: page, pageSize, sortBy },
+  } = tableInstance;
+
+  useEffect(() => {
+    setFilter((currentFilter) => ({
+      ...currentFilter,
+      page,
+    }));
+  }, [page]);
+
   return (
     <div className="d-flex flex-column gap-2">
-      <h4 className="font-weight-bold px-4">Member</h4>
-      <Table tableInstance={tableInstance} isLoading={false} hideControlsPageSize hideControlSearch />
+      <h4 className={`${useIsMobile() ? 'px-2' : 'px-4'} font-weight-bold`}>Member</h4>
+      <Table tableInstance={tableInstance} isLoading={false} isPage />
+      <ConfirmModal
+        titleText={textModal.titleText}
+        body={modalBody}
+        okText={textModal.btnConfirm}
+        cancelText={textModal.btnCancel}
+        show={show}
+        className=""
+        loading=""
+        onConfirm=""
+        onCancel={() => setShow(false)}
+      />
     </div>
   );
 };
