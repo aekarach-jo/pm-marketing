@@ -111,12 +111,12 @@ const Table = ({
   const tableInstance = tableConfig?.tableInstance || defaultTableInstance;
 
   const renderHeader = ({ tableInstance: tableInstanceHeader, filter }) => {
-    const { gotoPage, setFilter } = tableInstanceHeader;
+    // const { gotoPage, setFilter } = tableInstanceHeader;
     const onSetFilter = (dataResult) => {
       console.log(dataResult);
-      const result = dataResult?.value;
-      setFilter({ type: result, page: 0 });
-      gotoPage(0);
+      // const result = dataResult?.value;
+      // setFilter({ type: result, page: 0 });
+      // gotoPage(0);
     };
 
     return (
@@ -128,23 +128,6 @@ const Table = ({
             </div>
           )}
         </Col>
-        {isMovement && (
-          <Col sm="12" md="5" lg="3" xxl="2">
-            <>
-              <Select
-                className="filter"
-                classNamePrefix="react-select"
-                placeholder="select filter..."
-                onChange={onSetFilter}
-                isClearable
-                options={[
-                  { label: 'สินค้า', value: 'PRODUCT' },
-                  { label: 'วัสดุ', value: 'MATERIAL' },
-                ]}
-              />
-            </>
-          </Col>
-        )}
         <Col sm="12" md="2" lg={isMovement ? '6' : '9'} xxl={isMovement ? '8' : '10'} className="text-end">
           {!hideAddDelete && (
             <div className="d-inline-block me-0 me-sm-3 float-start float-md-none">
@@ -187,11 +170,11 @@ const Table = ({
           <TableBody className="react-table rows" tableInstance={tableInstanceContainer} customStyle={customStyle} rowProps={rowProps} />
           <TableDataNotFound tableInstance={tableInstanceContainer} />
         </Col>
-        {isPage && (
-          <Col xs="12">
-            <TablePagination tableInstance={tableInstanceContainer} />
-          </Col>
-        )}
+        {/* {isPage && ( */}
+        <Col xs="12">
+          <TablePagination tableInstance={tableInstanceContainer} />
+        </Col>
+        {/* )} */}
       </Row>
     </div>
   );

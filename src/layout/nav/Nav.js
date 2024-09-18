@@ -55,8 +55,8 @@ const Nav = () => {
   return (
     <div id="nav" className={classNames('nav-container d-flex', navClasses)} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div
-        className="nav-content d-flex"
-        style={placementStatus.placementHtmlData === MENU_PLACEMENT.Horizontal && menuPadding ? { paddingRight: menuPadding } : {}}
+        className="nav-content d-flex "
+        // style={placementStatus.placementHtmlData === MENU_PLACEMENT.Horizontal && menuPadding ? { paddingRight: menuPadding } : {}}
       >
         <NavLogo />
         {/* <NavLanguageSwitcher /> */}
@@ -66,6 +66,7 @@ const Nav = () => {
         <NavMobileButtons />
       </div>
       <div className="nav-shadow" />
+      <div className="w-100 position-absolute" style={{ background: 'rgba(0, 0, 0, 0.6)' }} />
     </div>
   );
 };

@@ -22,11 +22,10 @@ const Layout = ({ children }) => {
       <Col>
         <>
           <Nav />
-          <main className="pt-0">
+          <main className="pt-2">
             {useIsMobile() ? <div style={{ marginBottom: '4rem' }} /> : <Navbar />}
             <Container>
               <Row className="h-100">
-                {/* <Navbar /> */}
                 <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
                   {children}
                 </Card>

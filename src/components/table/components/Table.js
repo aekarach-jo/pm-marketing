@@ -1,13 +1,16 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import classNames from 'classnames';
+import { useIsMobile } from 'hooks/useIsMobile';
 import React, { useCallback } from 'react';
-import { Table as TableR } from 'react-bootstrap';
+import { Table as TableRes } from 'react-bootstrap';
 
 const Table = ({ tableInstance, className = 'react-table boxed', rowProps, customStyle, rowStyle }) => {
   const { getTableProps, headerGroups, page, getTableBodyProps, prepareRow, toggleAllPageRowsSelected, setIsOpenAddEditModal } = tableInstance;
+
   const handleRowClick = useCallback((oc, itemD, group) => (e) => oc?.(e, itemD, group), []);
   return (
     <>
-      <TableR responsive hover className={className} {...getTableProps()} style={customStyle}>
+      <TableRes responsive hover className={className} {...getTableProps()} style={customStyle} striped={useIsMobile()}>
         <thead>
           {headerGroups.map((headerGroup, headerIndex) => (
             <tr key={`header${headerIndex}`} {...headerGroup.getHeaderGroupProps()}>
@@ -16,11 +19,11 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
                   <th
                     key={`th.${index}`}
                     {...column.getHeaderProps(column.getSortByToggleProps())}
-                    className={classNames(column.headerClassName, {
+                    className={`${classNames(column.headerClassName, {
                       sorting_desc: column.isSortedDesc,
                       sorting_asc: column.isSorted && !column.isSortedDesc,
                       sorting: column.sortable,
-                    })}
+                    })} ${useIsMobile() && 'px-0'}`}
                   >
                     {column.render('Header')}
                   </th>
@@ -58,7 +61,7 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
                       }
                     }}
                     style={(`${rowStyle}`, { borderRadius: '0px', verticalAlign: 'middle' })}
-                    className="border-bottom"
+                    className={`${useIsMobile() && 'px-0'} border-bottom`}
                   >
                     {cell.render('Cell')}
                   </td>
@@ -67,7 +70,7 @@ const Table = ({ tableInstance, className = 'react-table boxed', rowProps, custo
             );
           })}
         </tbody>
-      </TableR>
+      </TableRes>
     </>
   );
 };
