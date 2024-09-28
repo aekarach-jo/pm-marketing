@@ -45,7 +45,7 @@ html[data-placement="vertical"] {
       align-items: center;
       gap: 12px;
       // margin-top: 33px;
-      margin-right: 60px;
+      // margin-right: 60px;
     }
 
     .nav-logo img {
@@ -265,7 +265,9 @@ html[data-placement="horizontal"] {
     height: var(--nav-size-slim);
     right: 0;
     left: 0;
-    width: 100%;
+    top: -60px;
+    // display: none !important;
+    width: 10%;
     justify-content: center;
     flex-direction: row;
     padding-left: var(--main-spacing-horizontal);
@@ -488,7 +490,6 @@ html[data-placement="horizontal"] {
     }
   }
 }
-
 /*
 * Vertical
 * Styles for vertical and mobile menu
@@ -682,6 +683,22 @@ html[data-placement="vertical"] .nav-container.mobile-side-ready {
   }
 }
 
+.nav-backDrop{
+  opacity: 0;
+}
+html[data-placement="vertical"] .nav-backDrop,
+html[data-placement="horizontal"] .nav-backDrop.mobile-side-ready,
+html[data-placement="vertical"] .nav-backDrop.mobile-side-ready {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 0px !important;
+  opacity: 0.6;
+  transition: 0.3s ease-in-out;
+}
+
 html[data-placement="horizontal"]:not([data-mobile="true"]) {
   .menu-icons,
   .user-container {
@@ -699,6 +716,9 @@ html[data-placement="horizontal"]:not([data-mobile="true"]) {
 html[data-placement="vertical"][data-dimension="mobile"],
 html[data-placement="horizontal"][data-dimension="mobile"] {
   .nav-container {
+    // display: none !important;
+    // top: -100 !important;
+
     .mobile-buttons-container {
       margin-left: auto;
       height: 100%;
@@ -768,9 +788,9 @@ html[data-placement="horizontal"][data-dimension="mobile"] {
     }
 
     &.mobile-top-in {
-      transition-property: top;
-      transition-duration: var(--transition-time);
-      top: 0;
+      // transition-property: top;
+      // transition-duration: var(--transition-time);
+      // top: 0;
     }
   }
 }
@@ -1535,7 +1555,6 @@ html[data-color="dark-purple"][data-navcolor="dark"] {
   background-color: transparent;
   // margin: 1.5rem 0px;
   height: 87px !important;
-  padding-right: 3rem;
 }
 
 .navbar-left {

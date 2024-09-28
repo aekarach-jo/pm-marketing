@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { DEFAULT_PATHS } from 'config.js';
 
 const NotFound = lazy(() => import('views/default/NotFound'));
+const LandingPage = lazy(() => import('views/landingPage/LandingPage'));
 const Login = lazy(() => import('views/default/Login'));
 const ForgotPassword = lazy(() => import('views/default/ForgotPassword'));
 const Register = lazy(() => import('views/default/Register'));
@@ -21,6 +22,7 @@ const Home = lazy(() => import('views/default/Home'));
 const defaultRoutes = [
   { path: DEFAULT_PATHS.NOTFOUND, exact: true, component: NotFound },
   { path: DEFAULT_PATHS.LOGIN, exact: true, component: Login },
+  { path: DEFAULT_PATHS.LandingPage, exact: true, component: LandingPage },
   { path: DEFAULT_PATHS.REGISTER, exact: true, component: Register },
   { path: DEFAULT_PATHS.FORGOT_PASSWORD, exact: true, component: ForgotPassword },
   { path: DEFAULT_PATHS.RESET_PASSWORD, exact: true, component: ResetPassword },

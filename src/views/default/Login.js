@@ -5,10 +5,8 @@ import { useIntl } from 'react-intl';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import LayoutFullpage from 'layout/LayoutFullpage';
-import CsLineIcons from 'cs-line-icons/CsLineIcons';
 import HtmlHead from 'components/html-head/HtmlHead';
 import { useLogin } from 'utils/auth';
-import clx from 'classnames';
 import { request } from 'utils/axios-utils';
 
 const Login = () => {

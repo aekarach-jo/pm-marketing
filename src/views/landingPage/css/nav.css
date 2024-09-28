@@ -1,0 +1,35 @@
+.text-white {
+  color: white !important;
+}
+
+.text-gray {
+  color: gray !important;
+}
+
+.navbar-height {
+  height: 80px !important;
+  padding: 0px 96px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.navbar-height .logo-image img {
+  width: 49px !important;
+  height: 49px !important;
+}
+
+.navbar-height .logo-image h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 48.35px;
+  letter-spacing: -0.39px;
+  margin-bottom: 0;
+}
+
+.navbar-height ul li a {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30.22px;
+  letter-spacing: -0.39px;
+}

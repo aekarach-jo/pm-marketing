@@ -14,6 +14,7 @@ export const REACT_HELMET_PROPS = {
 export const DEFAULT_PATHS = {
   APP: '/',
   LOGIN: '/login',
+  LandingPage: '/',
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
@@ -42,3 +43,18 @@ export const DEFAULT_USER = {
 };
 
 export const REDUX_PERSIST_KEY = 'classic-dashboard';
+
+export const navLinks = [
+  {
+    id: 'home',
+    title: 'Home',
+  },
+  {
+    id: 'services',
+    title: 'Services',
+  },
+  {
+    id: 'contactUs',
+    title: 'Contact Us',
+  },
+];

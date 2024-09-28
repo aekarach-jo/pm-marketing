@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { MENU_BEHAVIOUR, MENU_PLACEMENT } from 'constants.js';
+import { useIsMobile } from 'hooks/useIsMobile';
 import NavUserMenu from './NavUserMenu';
 import NavIconMenu from './NavIconMenu';
 import MainMenu from './main-menu/MainMenu';
@@ -53,21 +54,24 @@ const Nav = () => {
   };
 
   return (
-    <div id="nav" className={classNames('nav-container d-flex', navClasses)} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <div
-        className="nav-content d-flex "
-        // style={placementStatus.placementHtmlData === MENU_PLACEMENT.Horizontal && menuPadding ? { paddingRight: menuPadding } : {}}
-      >
-        <NavLogo />
-        {/* <NavLanguageSwitcher /> */}
-        {/* <NavUserMenu /> */}
-        {/* <NavIconMenu /> */}
-        <MainMenu />
-        <NavMobileButtons />
+    <>
+      <div id="nav" className={classNames('nav-container d-flex', navClasses)} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <div
+          className="nav-content d-flex "
+          // style={placementStatus.placementHtmlData === MENU_PLACEMENT.Horizontal && menuPadding ? { paddingRight: menuPadding } : {}}
+        >
+          <NavLogo />
+          {/* <NavLanguageSwitcher /> */}
+          {/* <NavUserMenu /> */}
+          {/* <NavIconMenu /> */}
+          <MainMenu />
+          <NavMobileButtons />
+          {!useIsMobile() && <NavMobileButtons />}
+        </div>
+        <div className="nav-shadow" />
       </div>
-      <div className="nav-shadow" />
-      <div className="w-100 position-absolute" style={{ background: 'rgba(0, 0, 0, 0.6)' }} />
-    </div>
+      <div className={classNames('nav-backDrop d-lg-none', navClasses)} />
+    </>
   );
 };
 export default React.memo(Nav);

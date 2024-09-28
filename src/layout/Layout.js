@@ -18,24 +18,20 @@ const Layout = ({ children }) => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <>
-      <Col>
-        <>
-          <Nav />
-          <main className="pt-2">
-            {useIsMobile() ? <div style={{ marginBottom: '4rem' }} /> : <Navbar />}
-            <Container>
-              <Row className="h-100">
-                <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
-                  {children}
-                </Card>
-              </Row>
-            </Container>
-          </main>
-        </>
-      </Col>
-      <Footer />
-    </>
+    <Navbar>
+      <Nav />
+      <main className="pt-2">
+        {/* {useIsMobile() ? <div style={{ marginBottom: '4rem' }} /> : <Navbar />} */}
+        <Container>
+          <Row className="h-100">
+            <Card className="bg-white rounded-lg px-0 py-5 h-content" id="contentArea">
+              {children}
+            </Card>
+          </Row>
+        </Container>
+        <Footer />
+      </main>
+    </Navbar>
   );
 };
 

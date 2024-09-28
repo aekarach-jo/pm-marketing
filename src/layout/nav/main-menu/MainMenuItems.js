@@ -45,7 +45,7 @@ const MainMenuItem = memo(({ item, id, isSubItem = false, menuPlacement = DEFAUL
         <>
           {icon && (
             <>
-              <Button style={{ background: '#CB0C9F', width: '32px', height: '32px', padding: '4px', marginRight: '10px' }}>
+              <Button style={{ background: '#CB0C9F', width: '32px', height: '32px', padding: '4px', right: '8px', position: 'relative' }}>
                 <img src={icon[0]} alt="icon" />
               </Button>
             </>
@@ -200,7 +200,7 @@ const MainMenuItem = memo(({ item, id, isSubItem = false, menuPlacement = DEFAUL
   if (!isSubItem || menuPlacement === MENU_PLACEMENT.Vertical) {
     return (
       <li>
-        <NavLink to={item.path} className={classNames({ active: isActive })} activeClassName="">
+        <NavLink to={item.path} className={`${classNames({ active: isActive })} ${isActive && 'ms-2'}`} activeClassName="">
           {getLabel(item.icon, item.label, isActive)}
         </NavLink>
       </li>
@@ -217,7 +217,7 @@ const MainMenuItem = memo(({ item, id, isSubItem = false, menuPlacement = DEFAUL
   }
   return (
     <Dropdown.Item as="li">
-      <NavLink to={item.path} className={classNames({ active: isActive })} activeClassName="">
+      <NavLink to={item.path} className={`${classNames({ active: isActive })}`} activeClassName="">
         {getLabel(item.icon, item.label, isActive)}
       </NavLink>
     </Dropdown.Item>

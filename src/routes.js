@@ -16,6 +16,10 @@ const resolve = {
   index: lazy(() => import('views/resolve/ResolveWord')),
 };
 
+// const resolve = {
+//   index: lazy(() => import('views/resolve/ResolveWord')),
+// };
+
 const appRoot = DEFAULT_PATHS.APP.endsWith('/') ? DEFAULT_PATHS.APP.slice(1, DEFAULT_PATHS.APP.length) : DEFAULT_PATHS.APP;
 
 const routesAndMenuItems = {
@@ -24,30 +28,34 @@ const routesAndMenuItems = {
       path: `${appRoot}/`,
       exact: true,
       redirect: true,
-      to: `${appRoot}/inspect`,
+      to: `${appRoot}/`,
     },
     {
       path: `${appRoot}/inspect`,
       component: inspect.index,
       label: 'หน้าแรก',
+      // protected: true,
       icon: ['/img/icons/home.png','/img/icons/home-dark.png'],
     },
     {
       path: `${appRoot}/member`,
       component: customer.index,
       label: 'สมาชิก',
+      // protected: true,
       icon: ['/img/icons/customer.png','/img/icons/customer-dark.png'],
     },
     {
       path: `${appRoot}/prohibited-words`,
       component: prohibited.index,
       label: 'คำต้องห้าม',
+      // protected: true,
       icon: ['/img/icons/warning.png','/img/icons/warning-dark.png'],
     },
     {
       path: `${appRoot}/resolve`,
       component: resolve.index,
       label: 'คำที่อนุมัติ',
+      // protected: true,
       icon: ['/img/icons/resolve.png','/img/icons/resolve-dark.png'],
     },
   ],
