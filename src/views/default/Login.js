@@ -143,7 +143,7 @@ const Login = () => {
                 >
                   {f({ id: 'SINGIN' })}
                 </Button>
-                <div className="text-center mt-5" style={{ fontSize: '13px', fontWeight: 400, color: '#8392AB' }}>
+                <div className="text-center mt-5 d-lg-none" style={{ fontSize: '13px', fontWeight: 400, color: '#8392AB' }}>
                   Copyright © 2024 PM Marketing. All rights reserved
                 </div>
               </form>

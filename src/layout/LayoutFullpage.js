@@ -35,7 +35,7 @@ const LayoutFullpage = ({ left, right, bottom }) => {
           {/* Right Side End */}
 
           {/* bottom copyright */}
-          <div className="position-absolute text-center d-none d-md-block" style={{ bottom: '3rem', left: 0, right: 0, margin: 'auto' }}>
+          <div className="position-absolute text-center d-none d-lg-block" style={{ bottom: '3rem', left: 0, right: 0, margin: 'auto' }}>
             {bottom}
           </div>
           {/* bottom copyright */}
