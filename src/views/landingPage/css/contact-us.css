@@ -1,0 +1,36 @@
+.contact-us {
+  background-color: #CB0C9F;
+  min-height: 169px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  color: white;
+  gap: 2rem;
+}
+.contact-us button {
+  height: 50px;
+  border-radius: 0.5rem;
+  background-color: white;
+  width: 180px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #161C2D !important;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-us {
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .contact-us button {
+    font-weight: 400;
+  }
+}
