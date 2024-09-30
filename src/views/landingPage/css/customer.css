@@ -1,0 +1,39 @@
+.customer {
+  min-height: 222px;
+  background-color: #F4F3FF;
+  display: flex;
+  padding-inline: 150px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customer-mobile {
+  background-color: #F4F3FF;
+  padding: 40px 35px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.customer-mobile img {
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (max-width: 1200px) {
+  .customer {
+    padding-inline: 100px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .customer {
+    padding-inline: 50px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .customer-mobile {
+    padding: 1rem;
+  }
+}
