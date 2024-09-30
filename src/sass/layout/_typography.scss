@@ -38,6 +38,10 @@ $focus-ring-color:red;
   font-family: var(--font-heading);
 }
 
+.text-dimWhite {
+  color: whitesmoke !important;
+}
+
 .text-medium {
   font-size: 0.9em !important;
 }
@@ -456,5 +460,21 @@ input.form-control:focus {
         font-size: 16px !important;
       }
     }
+  }
+}
+
+
+.footer-style {
+  position: absolute;
+  bottom: 1rem;
+  width: 78%;
+}
+
+@media screen and (max-width: 765px) {
+  .footer-style {
+    position: absolute;
+    bottom: 1rem;
+    width: 78%;
+    margin-left: 2rem;
   }
 }

@@ -21,7 +21,7 @@ const Navbar = ({ children }) => {
     console.log(name);
   };
   return (
-    <Col className="h-100 position-relative">
+    <Col className="h-100">
       <nav className={`navbar ${useIsMobile() ? 'px-5' : 'px-7'}`}>
         {!useIsMobile() && (
           <div className="navbar-left">

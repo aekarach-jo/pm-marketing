@@ -4,7 +4,7 @@ import { Button, Table } from 'react-bootstrap';
 
 const SectionWords = () => {
   return (
-    <div className="section-words" style={{ background: 'url(/img/background/section-words.png) center no-repeat', backgroundSize: 'cover' }}>
+    <div id="services" className="section-words" style={{ background: 'url(/img/background/section-words.png) center no-repeat', backgroundSize: 'cover' }}>
       <div className="contents">
         <div className="left w-50">
           <div>

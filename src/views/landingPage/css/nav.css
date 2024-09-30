@@ -12,6 +12,7 @@
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 9999;
 }
 
 .navbar-height .logo-image img {
@@ -32,4 +33,69 @@
   font-size: 20px;
   line-height: 30.22px;
   letter-spacing: -0.39px;
+}
+
+.m-display {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar-height {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    padding: 0px 20px;
+  }
+
+  .navbar-height ul,
+  .navbar-height .logo-image h2 {
+    display: none !important;
+  }
+
+  .navbar-height .btn {
+    background: transparent !important;
+    width: 135px !important;
+    height: 43px !important;
+    color: white !important;
+    border: 2px solid white;
+  }
+
+  .m-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .m-display .popup-card {
+    transform: translateX(100px);
+  }
+
+  .m-display .popup-card {
+    position: absolute !important;
+    width: 13rem !important;
+    height: 13rem !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-radius: 5px;
+    z-index: 3000;
+    top: 4rem;
+    right: 0rem;
+    transform: translateX(0px);
+    transition: 1s ease-in-out;
+  }
+
+  .m-display .popup-card ul {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+  }
+
+  .m-display .popup-card ul li {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    color: white;
+  }
 }
