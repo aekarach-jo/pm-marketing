@@ -39,7 +39,7 @@
   font-weight: 500;
 }
 
-ul {
+.footer-landing ul {
   display: flex;
   margin-top: 0.75rem;
   flex-direction: column;
@@ -47,11 +47,11 @@ ul {
   padding: 0;
 }
 
-ul li {
+.footer-landing ul li {
   list-style: none;
 }
 
-ul li a {
+.footer-landing ul li a {
   color: #EAECF0;
   font-size: 1rem;
   font-weight: 500;

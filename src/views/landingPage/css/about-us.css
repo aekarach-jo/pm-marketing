@@ -1,0 +1,93 @@
+.about-us {
+  min-height: 649px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #EBF0FF;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.about-us .head-title h2 {
+  color: #161C2D;
+  font-size: 3rem;
+  line-height: 58px;
+}
+
+.about-us .head-title p {
+  font-size: 19px;
+  line-height: 32px;
+  font-weight: 400;
+  color: #161C2D;
+}
+
+.about-us .card {
+  border: 1px solid #E7E9ED;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.about-us .card .card-body {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+.about-us .card .card-title img {
+  width: 54px;
+  height: 54px;
+  border-radius: 99rem;
+}
+
+.about-us .card .card-text {
+  margin-top: auto;
+  font-size: 21px;
+  color: #161C2D;
+  line-height: 32px;
+}
+
+.about-us .card .text-autor {
+  margin-top: auto;
+  font-size: 17px;
+  color: #161C2D;
+  line-height: 29px;
+}
+
+.about-us .card .text-autor span {
+  font-size: 17px;
+  color: #161C2D;
+  opacity: 0.75;
+  line-height: 29px;
+  margin-left: 0.5rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .about-us .card .card-body {
+    padding: 1.5rem;
+  }
+  .about-us .card .card-text {
+    margin-top: auto;
+    font-size: 16px;
+    color: #161C2D;
+    line-height: 24px;
+  }
+  .about-us .card .text-autor {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .about-us .card .text-autor span {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-us .card {
+    width: 100% !important;
+  }
+  .about-us .contents {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    padding-inline: 2rem;
+  }
+}
