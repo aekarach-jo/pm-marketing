@@ -1,10 +1,19 @@
 .customer {
-  min-height: 222px;
   background-color: #F4F3FF;
+  
+}
+
+.customer .container {
+  padding: 40px 35px;
+  gap: 20px;
+  flex-wrap: wrap;
   display: flex;
-  padding-inline: 150px;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.customer img {
+  width: 100px;
+  height: 100px;
 }
 
 .customer-mobile {

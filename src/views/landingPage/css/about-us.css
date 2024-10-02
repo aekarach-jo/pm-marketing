@@ -19,6 +19,7 @@
   line-height: 32px;
   font-weight: 400;
   color: #161C2D;
+  opacity: 0.5;
 }
 
 .about-us .card {
@@ -70,6 +71,12 @@
     font-size: 16px;
     color: #161C2D;
     line-height: 24px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 120px;
   }
   .about-us .card .text-autor {
     font-size: 12px;
@@ -79,9 +86,20 @@
     font-size: 12px;
     line-height: 1.5;
   }
+
+  .about-us .head-title h2 {
+    font-size: 2rem !important;
+  }
+
+  .about-us .head-title p {
+    font-size: 1rem !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .about-us .head-title h2 {
+    font-size: 2rem !important;
+  }
   .about-us .card {
     width: 100% !important;
   }
@@ -89,5 +107,18 @@
     flex-wrap: wrap;
     row-gap: 1rem;
     padding-inline: 2rem;
+  }
+
+  .about-us .card .card-text {
+    margin-top: auto;
+    font-size: 16px;
+    color: #161C2D;
+    line-height: 24px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 120px;
   }
 }

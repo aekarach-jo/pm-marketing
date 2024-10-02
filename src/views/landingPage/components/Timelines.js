@@ -10,7 +10,7 @@ const Timelines = () => {
           With lots of unique blocks, you can easily build a <br /> page easily without any coding.{' '}
         </p>
       </div>
-      <div className="row w-100">
+      <div className="row w-100 mt-3 mt-lg-0">
         <div className="col">
           <div className="timeline-steps aos-init aos-animate" data-aos="fade-up">
             <div className="timeline-step step1">

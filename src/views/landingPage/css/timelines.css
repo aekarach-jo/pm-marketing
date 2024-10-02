@@ -33,6 +33,17 @@
     margin: 1rem
 }
 
+@media screen and (max-width: 991px) {
+  .timelines .head-title h2 {
+    font-size: 2rem !important;
+  }
+  .timelines .head-title p {
+    font-size: 1rem !important;
+    color: #161C2D;
+    opacity: 0.5;
+  }
+}
+
 @media (min-width: 991px) {
     .timeline-steps .timeline-step:not(:last-child):after {
         content: "";
