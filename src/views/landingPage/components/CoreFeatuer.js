@@ -4,10 +4,10 @@ import { Button, Card, Col } from 'react-bootstrap';
 
 const CoreFeatuer = () => {
   return (
-    <section  className="coreFeatuer-section">
+    <section className="coreFeatuer-section">
       <img className="cover img-fluid" src="/img/assets/cors_cover.png" alt="cover" />
       <div className="group-card">
-        <div className="card-content">
+        <div className="card-content d-none d-lg-block">
           <div className="card-left">
             <img className="rejected" src="/img/assets/rejected.png" alt="rejected" />
             <Card className="card-reject">
@@ -34,6 +34,9 @@ const CoreFeatuer = () => {
               </div>
             </Card>
           </div>
+        </div>
+        <div className="card-content-mobile d-block d-lg-none">
+          <img className="w-100" src="/img/image.png" alt="rejected" style={{ maxWidth: '450px' }} />
         </div>
         <Card className="card-content">
           <Col>Check for prohibited words and can be used for advertising in real time.</Col>

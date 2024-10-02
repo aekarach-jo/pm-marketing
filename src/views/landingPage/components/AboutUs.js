@@ -55,7 +55,7 @@ const AboutUs = () => {
       </div>
 
       <div className="contents container d-lg-none">
-        <Swiper slidesPerView={2} centeredSlides grabCursor spaceBetween={20} slidesPerGroup={1} loop>
+        <Swiper slidesPerView={1.3} centeredSlides grabCursor spaceBetween={20} slidesPerGroup={1} loop>
           <SwiperSlide>
             <Card className="bg-white w-100 h-100">
               <Card.Body>
