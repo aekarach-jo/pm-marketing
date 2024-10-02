@@ -4,7 +4,7 @@ import '../css/contact-us.css';
 
 const ContactUs = () => {
   return (
-    <div className="contact-us">
+    <div id="contactUs" className="contact-us">
       Ready to get started? <Button variant="light">Get A Free Quote</Button>
     </div>
   );

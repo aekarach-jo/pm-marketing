@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <Navbar>
       <Nav />
-      <main className="pt-2">
+      <main className="pt-2 w-100">
         {/* {useIsMobile() ? <div style={{ marginBottom: '4rem' }} /> : <Navbar />} */}
         <Container>
           <Row className="h-100">

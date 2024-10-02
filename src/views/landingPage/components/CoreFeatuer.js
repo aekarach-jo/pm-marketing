@@ -4,10 +4,37 @@ import { Button, Card, Col } from 'react-bootstrap';
 
 const CoreFeatuer = () => {
   return (
-    <section className="coreFeatuer-section">
+    <section  className="coreFeatuer-section">
       <img className="cover img-fluid" src="/img/assets/cors_cover.png" alt="cover" />
       <div className="group-card">
-        <div className="card-content">1</div>
+        <div className="card-content">
+          <div className="card-left">
+            <img className="rejected" src="/img/assets/rejected.png" alt="rejected" />
+            <Card className="card-reject">
+              <img className=" img-close" src="/img/assets/carbon_close-outline.png" alt="close" />
+              <img className=" img-fluid" src="/img/assets/image.png" alt="rejected" />
+              <div>
+                ปัญหาสิว เราดูแลได้ <br /> ในราคา
+                <span>เริ่มต้น</span>
+                <span> 2,990 </span>
+                บาท
+              </div>
+            </Card>
+          </div>
+          <div className="card-right">
+            <img className="approve" src="/img/assets/approved.png" alt="rejected" />
+            <Card className="card-reject">
+              <img className=" img-check" src="/img/assets/icon-park-solid_check-one.png" alt="check" />
+              <img className=" img-fluid" src="/img/assets/image.png" alt="rejected" />
+              <div>
+                ปัญหาสิว เราดูแลได้ <br /> ในราคา
+                <span>เพียง</span>
+                <span> 2,990 </span>
+                บาท
+              </div>
+            </Card>
+          </div>
+        </div>
         <Card className="card-content">
           <Col>Check for prohibited words and can be used for advertising in real time.</Col>
           <Col>

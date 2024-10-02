@@ -4,8 +4,10 @@ import { Button } from 'react-bootstrap';
 
 const Hero = () => {
   return (
-    <section className="hero-section">
-      <img className="cover img-fluid" src="/img/assets/cover.png" alt="cover" />
+    <section id="home" className="hero-section">
+      <div className="bg-back-drop" />
+      <div className="bg-fade" />
+      <img className="cover " src="/img/assets/cover.png" alt="cover" />
       <div className="group-text">
         <div>
           Create your Ads <br /> with our banned and detection keyword
@@ -19,8 +21,8 @@ const Hero = () => {
           style={{
             background: 'rgba(203, 12, 159, 1)',
             borderRadius: '10px',
-            width: '299px',
-            height: '80px',
+            width: '338px',
+            height: '64px',
           }}
           size="lg"
           type="submit"
